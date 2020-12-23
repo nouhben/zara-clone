@@ -2,49 +2,50 @@ import 'package:flutter/material.dart';
 
 import 'size_config.dart';
 
-// PRIMARY
+// Colors
 const kPrimaryColor = Colors.black;
 const kSecondaryColor = Colors.white;
 const kFeedbackColor = Color(0xffFF7776);
 
 // SECONDARY
 const kSecondaryLightColor = Color(0xFFE4E9F2);
-const kSecondaryDarkColor = Color(0xFF404040);
+const kSecondaryDarkColor = Colors.black;
 const kSecondaryFeedbackColor = Color(0xffFF7776);
 
 // ACCENT
-const kAccentLightColor = Color(0xFFB3BFD7);
-const kAccentDarkColor = Color(0xFF4E4E4E);
+const kAccentLightColor = Colors.white;
+const kAccentDarkColor = Colors.black;
 const kAccentFeedbackColor = Color(0xffFF7776);
 
-const kBackgroundDarkColor = Color(0xFF3A3A3A);
-const kSurfaceDarkColor = Color(0xFF222225);
+const kBackgroundDarkColor = Colors.black;
+const kSurfaceDarkColor = Colors.black;
 
 // ICON COLORS
-const kAccentIconLightColor = Color(0xFFECEFF5);
-const kAccentIconDarkColor = Color(0xFF303030);
-const kPrimaryIconLightColor = Color(0xFFECEFF5);
-const kPrimaryIconDarkColor = Color(0xFF232323);
+const kAccentIconLightColor = Colors.white;
+const kAccentIconDarkColor = Colors.black;
+const kPrimaryIconLightColor = Colors.white;
+const kPrimaryIconDarkColor = Colors.black;
 
 // TEXT COLORS
 const kBodyTextColorLight = Colors.black;
 const kBodyTextColorDark = Colors.white;
-const kTitleTextLightColor = Color(0xFF101112);
-const kTitleTextDarkColor = Colors.white;
+const kTitleTextColorLight = Colors.black;
+const kTitleTextColorDark = Colors.white;
 
-// TEXT STYLES
-const kH1 = TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold, letterSpacing: -0.39, height: 22);
-const kH2 = TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, letterSpacing: -0.02, height: 16);
-const kH3 = TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold, letterSpacing: -0.23, height: 14);
-const kBody1 = TextStyle(fontSize: 12, fontWeight: FontWeight.w300, letterSpacing: -0.20, height: 22);
-const kBody2 = TextStyle(fontSize: 12, fontWeight: FontWeight.w600, letterSpacing: -0.26, height: 15);
-const kButton1 = TextStyle(fontSize: 14, fontWeight: FontWeight.bold, letterSpacing: -0.26, height: 17);
-const kButton2 = TextStyle(fontSize: 12, fontWeight: FontWeight.normal, letterSpacing: -0.23, height: 14);
 //Shadow color
 const kShadowColor = Color(0xFF364564);
 
 const Duration kAnimationDuration = Duration(milliseconds: 200);
-
+//TEXT STYLE
+final kHeadline1 = TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold, letterSpacing: -0.39, height: 2.2, color: kSecondaryColor);
+final kHeadline2 = TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, letterSpacing: -0.02, height: 1.6, color: kSecondaryColor);
+final kHeadline3 = TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold, letterSpacing: -0.23, height: 1.4, color: kSecondaryColor);
+final kHeadline4 = TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold, letterSpacing: -0.23, height: 1.4, color: kSecondaryColor);
+final kHeadline5 = TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold, letterSpacing: -0.23, height: 1.4, color: kSecondaryColor);
+final kHeadline6 = TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold, letterSpacing: -0.23, height: 1.4, color: kSecondaryColor);
+final kBodyText1 = TextStyle(fontSize: 12, fontWeight: FontWeight.w300, letterSpacing: -0.20, height: 2.2, color: kSecondaryColor);
+final kBodyText2 = TextStyle(fontSize: 12, fontWeight: FontWeight.w600, letterSpacing: -0.26, height: 1.5, color: kSecondaryColor);
+final kButton = TextStyle(fontSize: 14, fontWeight: FontWeight.bold, letterSpacing: -0.26, height: 1.7, color: kSecondaryColor);
 //INPUTS
 final TextStyle kHeadingStyle = TextStyle(
   color: Colors.black,
