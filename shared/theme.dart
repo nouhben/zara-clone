@@ -24,8 +24,8 @@ ThemeData themeData(BuildContext context) {
       headline4: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold, letterSpacing: -0.23, height: 1.4, color: kSecondaryColor),
       headline5: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold, letterSpacing: -0.23, height: 1.4, color: kSecondaryColor),
       headline6: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold, letterSpacing: -0.23, height: 1.4, color: kSecondaryColor),
-      bodyText1: TextStyle(fontSize: 12, fontWeight: FontWeight.w300, letterSpacing: -0.20, height: 2.2, color: kSecondaryColor),
-      bodyText2: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, letterSpacing: -0.26, height: 1.5, color: kSecondaryColor),
+      bodyText1: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, letterSpacing: -0.20, height: 2.2, color: kSecondaryColor),
+      bodyText2: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, letterSpacing: 0.26, height: 1.2, color: kSecondaryColor),
       button: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, letterSpacing: -0.26, height: 1.7, color: kSecondaryColor),
     ),
   );

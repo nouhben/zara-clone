@@ -38,7 +38,7 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
         image: DecorationImage(
           fit: BoxFit.cover,
           image: NetworkImage(
-            'https://static.zara.net/photos///contents/mkt/spots/aw20-north-collection-man/subhome-xmedia-50//w/1440/portrait_0.jpg?ts=1607370782079',
+            'https://static.zara.net/photos///contents/mkt/spots/aw20-north-shoes-and-bags-man/subhome-xmedia-51//w/1280/portrait_0.jpg?ts=1608717755963',
           ),
         ),
       ),
@@ -50,6 +50,10 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
               child: Tabs(
                 onPress: (index) {
                   print('Pressed $index \n');
+                  setState(() {
+                    _activeCategory = SexCategory.values.elementAt(index);
+                    print(_activeCategory);
+                  });
                 },
               ),
             ),
@@ -59,50 +63,92 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
             right: 0,
             top: 0,
             bottom: -100,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'NEW IN',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline1.copyWith(color: kSecondaryColor),
-                ),
-                Text(
-                  'kdkajshdk ksdjhkdsfjh adskjhkjd fsdkjh\nksdjhkdsfjh adskjhkjd fsdkjh\nksdjhkdsfjh adskjhkjd',
-                  maxLines: 4,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyText1.copyWith(color: kSecondaryColor),
-                ),
-                VerticalSpacing(of: 20),
-                LightCTAButton(
-                  label: 'VIEW ',
-                  width: 122.0,
-                  height: 28.0,
-                  opacity: .7,
-                  padding: 8.0,
-                  onPress: () {},
-                  textStyle: Theme.of(context).textTheme.bodyText1.copyWith(height: 1),
-                ),
-              ],
-            ),
+            child: CategoryOverview(category: SexCategory.MEN),
           ),
           Positioned(
             right: 20,
             top: 0,
             bottom: -50,
-            child: FadeTransition(
-              opacity: _controller,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CarouselDot(size: 9.0, color: kSecondaryColor, isActive: true),
-                  CarouselDot(size: 5.0, color: kSecondaryColor, isActive: false),
-                  CarouselDot(size: 5.0, color: kSecondaryColor, isActive: false),
-                  CarouselDot(size: 5.0, color: kSecondaryColor, isActive: false),
-                  CarouselDot(size: 5.0, color: kSecondaryColor, isActive: false),
-                ],
-              ),
-            ),
+            child: CarouselDots(length: 7),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CategoryOverview extends StatelessWidget {
+  const CategoryOverview({
+    Key key,
+    @required this.category,
+  }) : super(key: key);
+  final SexCategory category;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SizedBox(
+          width: SizeConfig.screenWidth * 0.7, // 70%
+          child: Text(
+            'SHOES & BAGS',
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.headline1.copyWith(
+                  color: kSecondaryColor,
+                  fontSize: SizeConfig.getProportionateScreenWidth(60),
+                  height: 1.2,
+                ),
+          ),
+        ),
+        SizedBox(
+          width: SizeConfig.screenWidth * 0.7, // 70%
+          child: Text(
+            'Explore this week\'s latest menswear pieces of the season curated for you\nAutumn Winter Man Collection',
+            maxLines: 4,
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodyText2.copyWith(color: kSecondaryColor),
+          ),
+        ),
+        VerticalSpacing(of: 20),
+        LightCTAButton(
+          label: 'VIEW ',
+          width: 136.0,
+          height: 28.0,
+          opacity: 1.0,
+          padding: 12.0,
+          onPress: () {},
+          textStyle: Theme.of(context).textTheme.bodyText2.copyWith(height: 1),
+        ),
+      ],
+    );
+  }
+}
+
+class CarouselDots extends StatefulWidget {
+  final int length;
+  const CarouselDots({
+    Key key,
+    @required this.length,
+  }) : super(key: key);
+
+  @override
+  _CarouselDotsState createState() => _CarouselDotsState();
+}
+
+class _CarouselDotsState extends State<CarouselDots> {
+  bool _isVisible = true;
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedOpacity(
+      opacity: _isVisible ? 1.0 : 0.0,
+      duration: Duration(microseconds: 500),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ...List.generate(
+            widget.length,
+            (index) => CarouselDot(color: kSecondaryColor, isActive: index / widget.length == 0),
           ),
         ],
       ),
@@ -113,18 +159,18 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
 class CarouselDot extends StatelessWidget {
   const CarouselDot({
     Key key,
-    this.size,
     this.isActive,
     this.color,
   }) : super(key: key);
-  final double size;
+
   final bool isActive;
   final Color color;
   @override
   Widget build(BuildContext context) {
+    double size = isActive ? 9.0 : 5.0;
     return Container(
-      width: size ?? 5.0,
-      height: size ?? 5.0,
+      width: size,
+      height: size,
       margin: EdgeInsets.only(bottom: 7),
       decoration: BoxDecoration(
         shape: BoxShape.circle,

@@ -141,7 +141,7 @@ class LightCTAButton extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.zero,
-        side: BorderSide(color: kSecondaryColor.withOpacity(opacity ?? 1.0), width: 1.0),
+        side: BorderSide(color: kSecondaryColor.withOpacity(opacity ?? 1.0), width: 2.0),
       ),
       elevation: 0.0,
       disabledElevation: 0.0,
@@ -161,7 +161,7 @@ class LightCTAButton extends StatelessWidget {
         child: Center(
           child: Text(
             this.label ?? 'CTA',
-            style: this.textStyle.copyWith(color: kSecondaryColor.withOpacity(opacity ?? 1.0)),
+            style: this.textStyle.copyWith(color: kSecondaryColor.withOpacity(opacity ?? 1.0), fontSize: 18.0),
           ),
         ),
       ),
