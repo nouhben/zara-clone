@@ -62,14 +62,6 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
             ),
           ),
         ),
-        // Align(
-        //   alignment: Alignment.centerRight,
-        //   child: Container(
-        //     child: CarouselDots(length: 6),
-        //     color: kFeedbackColor,
-        //     height: 200.0,
-        //   ),
-        // ),
       ],
     );
   }
@@ -94,6 +86,7 @@ class _CategoryOverviewState extends State<CategoryOverview> {
     super.initState();
     _index = 0;
     _pageController = PageController(initialPage: _index, viewportFraction: 1.0);
+    print('building once');
   }
 
   @override
@@ -104,6 +97,7 @@ class _CategoryOverviewState extends State<CategoryOverview> {
           controller: _pageController,
           scrollDirection: Axis.vertical,
           onPageChanged: (value) {
+            print('re-building');
             setState(() {
               _index = value;
             });
