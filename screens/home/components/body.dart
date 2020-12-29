@@ -109,9 +109,10 @@ class _CategoryOverviewState extends State<CategoryOverview> {
             });
           },
           children: [
-            OverviewBody(overview: widget.overview[0]),
-            OverviewBody(overview: widget.overview[2]),
-            OverviewBody(overview: widget.overview[3]),
+            ...List.generate(
+              widget.overview.length,
+              (index) => OverviewBody(overview: widget.overview[index]),
+            ),
           ],
         ),
         Align(
