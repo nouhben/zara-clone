@@ -87,46 +87,49 @@ class CategoryOverview extends StatefulWidget {
 }
 
 class _CategoryOverviewState extends State<CategoryOverview> {
-  int _index = 0;
+  int _index;
+  PageController _pageController;
+  @override
+  void initState() {
+    super.initState();
+    _index = 0;
+    _pageController = PageController(initialPage: _index, viewportFraction: 1.0);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onVerticalDragDown: (details) {
-        print('drag end...');
-        setState(() {
-          _index = (_index + 1) % widget.overview.length;
-        });
-      },
-      child: SingleChildScrollView(
-        child: Stack(
+    return Stack(
+      children: [
+        PageView(
+          controller: _pageController,
+          scrollDirection: Axis.vertical,
+          onPageChanged: (value) {
+            setState(() {
+              _index = value;
+            });
+          },
           children: [
-            IndexedStack(
-              index: _index,
+            OverviewBody(overview: widget.overview[0]),
+            OverviewBody(overview: widget.overview[2]),
+            OverviewBody(overview: widget.overview[3]),
+          ],
+        ),
+        Align(
+          alignment: Alignment.centerRight,
+          child: SizedBox(
+            height: SizeConfig.screenHeight,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ...List.generate(
                   widget.overview.length,
-                  (index) => OverviewBody(overview: widget.overview[index]),
+                  (index) => CarouselDot(isActive: index == _index, color: kSecondaryColor),
                 ),
               ],
             ),
-            Align(
-              alignment: Alignment.centerRight,
-              child: SizedBox(
-                height: SizeConfig.screenHeight,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ...List.generate(
-                      widget.overview.length,
-                      (index) => CarouselDot(isActive: index == _index, color: kSecondaryColor),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
+          ),
         ),
-      ),
+      ],
     );
   }
 }
