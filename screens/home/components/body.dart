@@ -31,20 +31,32 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      overflow: Overflow.visible,
       children: [
-        Positioned(
-          left: 0,
-          right: 0,
-          top: 0,
-          bottom: SizeConfig.getProportionateScreenHeight(-50),
-          child: CategoryOverview(
-            overview: _activeCategory == SexCategory.MEN
-                ? menCategoryOverviews
-                : _activeCategory == SexCategory.WOMEN
-                    ? womenCategoryOverviews
-                    : kidsCategoryOverviews,
-          ),
+        IndexedStack(
+          index: _activeCategory.index,
+          children: [
+            Positioned(
+              left: 0,
+              right: 0,
+              top: 0,
+              bottom: SizeConfig.getProportionateScreenHeight(-50),
+              child: CategoryOverview(overview: menCategoryOverviews),
+            ),
+            Positioned(
+              left: 0,
+              right: 0,
+              top: 0,
+              bottom: SizeConfig.getProportionateScreenHeight(-50),
+              child: CategoryOverview(overview: womenCategoryOverviews),
+            ),
+            Positioned(
+              left: 0,
+              right: 0,
+              top: 0,
+              bottom: SizeConfig.getProportionateScreenHeight(-50),
+              child: CategoryOverview(overview: kidsCategoryOverviews),
+            ),
+          ],
         ),
         Align(
           alignment: Alignment.topCenter,
