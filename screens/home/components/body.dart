@@ -85,7 +85,7 @@ class _CategoryOverviewState extends State<CategoryOverview> {
   void initState() {
     super.initState();
     _index = 0;
-    _pageController = PageController(initialPage: _index, viewportFraction: 1.0);
+    _pageController = PageController(initialPage: 0, viewportFraction: 1.0);
     print('building once');
   }
 
@@ -93,21 +93,19 @@ class _CategoryOverviewState extends State<CategoryOverview> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        PageView(
+        PageView.builder(
           controller: _pageController,
           scrollDirection: Axis.vertical,
+          itemCount: widget.overview.length,
           onPageChanged: (value) {
             print('re-building');
+            print('page: ${_pageController.page.round()} ==> value: $value');
+
             setState(() {
               _index = value;
             });
           },
-          children: [
-            ...List.generate(
-              widget.overview.length,
-              (index) => OverviewBody(overview: widget.overview[index]),
-            ),
-          ],
+          itemBuilder: (context, index) => OverviewBody(overview: widget.overview[index]),
         ),
         Align(
           alignment: Alignment.centerRight,
