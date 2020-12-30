@@ -110,8 +110,7 @@ class _CategoryOverviewState extends State<CategoryOverview> {
           scrollDirection: Axis.vertical,
           itemCount: widget.overview.length,
           onPageChanged: (value) {
-            print('re-building');
-            print('page: ${_pageController.page.round()} ==> value: $value');
+            print('re-building page: ${_pageController.page.round()} ==> value: $value');
 
             setState(() {
               _index = value;
@@ -163,7 +162,7 @@ class OverviewBody extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              width: SizeConfig.screenWidth * 0.85, // 70%
+              width: SizeConfig.screenWidth * 0.9, // 70%
               child: Text(
                 overview.title.toUpperCase(),
                 textAlign: TextAlign.center,
@@ -175,7 +174,7 @@ class OverviewBody extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: SizeConfig.screenWidth * 0.85, // 70%
+              width: SizeConfig.screenWidth * 0.9, // 70%
               child: Text(
                 overview.description.toUpperCase(),
                 maxLines: 4,
@@ -183,7 +182,11 @@ class OverviewBody extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyText2.copyWith(color: kSecondaryColor),
               ),
             ),
-            VerticalSpacing(of: 20),
+            VerticalSpacing(
+              of: SizeConfig.getProportionateScreenWidth(
+                (overview.title.isEmpty && this.overview.description.isEmpty) ? 150 : 40,
+              ),
+            ),
             LightCTAButton(
               label: 'VIEW ',
               width: 136.0,
