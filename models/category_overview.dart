@@ -1,4 +1,4 @@
-import 'package:zara_clone/screens/home/components/body.dart';
+import 'package:zara_clone/models/sex_cagetogry.dart';
 
 class Overview {
   final String title;

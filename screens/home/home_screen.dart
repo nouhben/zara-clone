@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:zara_clone/shared/constants.dart';
 import 'package:zara_clone/shared/routes.dart';
 import 'package:zara_clone/shared/size_config.dart';
 
 import 'components/body.dart';
+import 'components/bottom_navigation_button.dart';
 
 class HomeScreen extends StatelessWidget {
   static final String routeName = '/home';
@@ -74,28 +74,5 @@ class HomeScreen extends StatelessWidget {
         ),
       );
     }
-  }
-}
-
-class BottomNavigationButton extends StatelessWidget {
-  const BottomNavigationButton({
-    Key key,
-    @required this.icon,
-    @required this.onPress,
-  }) : super(key: key);
-  final String icon;
-  final GestureTapCallback onPress;
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: this.onPress,
-      child: SvgPicture.asset(
-        this.icon,
-        width: 16.0,
-        fit: BoxFit.cover,
-        clipBehavior: Clip.antiAlias,
-        color: Theme.of(context).textTheme.button.color,
-      ),
-    );
   }
 }
