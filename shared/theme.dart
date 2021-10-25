@@ -8,64 +8,53 @@ ThemeData themeData(BuildContext context) {
   return ThemeData(
     appBarTheme: appBarTheme,
     primaryColor: kPrimaryColor,
-    accentColor: kAccentLightColor,
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: kBackgroundDarkColor,
+    backgroundColor: kBackgroundDarkColor,
+    iconTheme: IconThemeData(color: kAccentIconDarkColor),
+    primaryIconTheme: IconThemeData(color: kPrimaryIconDarkColor),
+    textTheme: GoogleFonts.poppinsTextTheme().copyWith(
+      headline1: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold, letterSpacing: -0.39, height: 2.2, color: kSecondaryColor),
+      headline2: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, letterSpacing: -0.02, height: 1.6, color: kSecondaryColor),
+      headline3: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold, letterSpacing: -0.23, height: 1.4, color: kSecondaryColor),
+      headline4: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold, letterSpacing: -0.23, height: 1.4, color: kSecondaryColor),
+      headline5: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold, letterSpacing: -0.23, height: 1.4, color: kSecondaryColor),
+      headline6: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold, letterSpacing: -0.23, height: 1.4, color: kSecondaryColor),
+      bodyText1: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, letterSpacing: -0.20, height: 2.2, color: kSecondaryColor),
+      bodyText2: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, letterSpacing: 0.26, height: 1.2, color: kSecondaryColor),
+      button: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, letterSpacing: -0.26, height: 1.7, color: kSecondaryColor),
+    ),
     colorScheme: ColorScheme.light(
       secondary: kSecondaryLightColor,
-      // on light theme surface = Colors.white by default
-    ),
-    backgroundColor: Colors.white,
-    iconTheme: IconThemeData(color: kBodyTextColorLight),
-    accentIconTheme: IconThemeData(color: kAccentIconLightColor),
-    primaryIconTheme: IconThemeData(color: kPrimaryIconLightColor),
-    textTheme: GoogleFonts.poppinsTextTheme().copyWith(
-      bodyText1: kBody1.copyWith(color: kPrimaryColor),
-      bodyText2: kBody2.copyWith(color: kPrimaryColor),
-      headline6: kH3.copyWith(color: kPrimaryColor),
-      headline5: kH3.copyWith(color: kPrimaryColor),
-      headline4: kH3.copyWith(color: kPrimaryColor),
-      headline3: kH3.copyWith(color: kPrimaryColor),
-      headline2: kH2.copyWith(color: kPrimaryColor),
-      headline1: kH1.copyWith(color: kPrimaryColor),
-      button: kButton1,
-    ),
+    ).copyWith(secondary: kAccentDarkColor),
   );
 }
 
-// Dark Them
 ThemeData darkThemeData(BuildContext context) {
   return ThemeData.dark().copyWith(
-    primaryColor: kPrimaryColor,
-    accentColor: kAccentDarkColor,
-    floatingActionButtonTheme: FloatingActionButtonThemeData(
-      foregroundColor: kTitleTextDarkColor,
-      backgroundColor: kAccentDarkColor,
-    ),
-    scaffoldBackgroundColor: Color(0xFF0D0C0E),
     appBarTheme: appBarTheme,
-    colorScheme: ColorScheme.light(
-      secondary: kSecondaryDarkColor,
-      surface: kSurfaceDarkColor,
-    ),
+    primaryColor: kSecondaryColor,
+    scaffoldBackgroundColor: kBackgroundDarkColor,
     backgroundColor: kBackgroundDarkColor,
-    iconTheme: IconThemeData(color: kBodyTextColorDark),
-    accentIconTheme: IconThemeData(color: kAccentIconDarkColor),
+    iconTheme: IconThemeData(color: kAccentIconDarkColor),
     primaryIconTheme: IconThemeData(color: kPrimaryIconDarkColor),
-    textTheme: GoogleFonts.latoTextTheme().copyWith(
-      bodyText1: kBody1.copyWith(color: kSecondaryColor),
-      bodyText2: kBody2.copyWith(color: kSecondaryColor),
-      headline6: kH3.copyWith(color: kSecondaryColor),
-      headline5: kH3.copyWith(color: kSecondaryColor),
-      headline4: kH3.copyWith(color: kSecondaryColor),
-      headline3: kH3.copyWith(color: kSecondaryColor),
-      headline2: kH2.copyWith(color: kSecondaryColor),
-      headline1: kH1.copyWith(color: kSecondaryColor),
-      button: kButton1,
-    ),
+    textTheme: GoogleFonts.poppinsTextTheme().copyWith(
+      headline1: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold, letterSpacing: -0.39, height: 22, color: kPrimaryColor),
+      headline2: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, letterSpacing: -0.02, height: 16, color: kPrimaryColor),
+      headline3: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold, letterSpacing: -0.23, height: 14, color: kPrimaryColor),
+      headline4: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold, letterSpacing: -0.23, height: 14, color: kPrimaryColor),
+      headline5: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold, letterSpacing: -0.23, height: 14, color: kPrimaryColor),
+      headline6: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold, letterSpacing: -0.23, height: 14, color: kPrimaryColor),
+      bodyText1: TextStyle(fontSize: 12, fontWeight: FontWeight.w300, letterSpacing: -0.20, height: 22, color: kPrimaryColor),
+      bodyText2: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, letterSpacing: -0.26, height: 15, color: kPrimaryColor),
+      button: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, letterSpacing: -0.26, height: 17, color: kPrimaryColor),
+    ), colorScheme: ColorScheme.light(
+      secondary: Colors.white,
+    ).copyWith(secondary: kAccentLightColor),
   );
 }
 
 AppBarTheme appBarTheme = AppBarTheme(
   color: Colors.transparent,
   elevation: 0,
+  centerTitle: true,
 );

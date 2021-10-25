@@ -16,16 +16,16 @@ class SizeConfig {
 
   // Get the proportionate height as per screen size
   static double getProportionateScreenHeight(double inputHeight) {
-    double screenHeight = SizeConfig.screenHeight!;
+    double? screenHeight = SizeConfig.screenHeight;
     // Our designer use iPhone 11 , that's why we use 896.0
-    return (inputHeight / 896.0) * screenHeight;
+    return (inputHeight / 896.0) * screenHeight!;
   }
 
 // Get the proportionate height as per screen size
   static double getProportionateScreenWidth(double inputWidth) {
-    double screenWidth = SizeConfig.screenWidth!;
+    double? screenWidth = SizeConfig.screenWidth;
     // 414 is the layout width that designer use or you can say iPhone 11  width
-    return (inputWidth / 414.0) * screenWidth;
+    return (inputWidth / 414.0) * screenWidth!;
   }
 }
 
@@ -42,6 +42,23 @@ class VerticalSpacing extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: SizeConfig.getProportionateScreenHeight(of),
+    );
+  }
+}
+
+// For add free space horizontally
+class HorizontalSpacing extends StatelessWidget {
+  const HorizontalSpacing({
+    Key? key,
+    this.of = 20,
+  }) : super(key: key);
+
+  final double of;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: SizeConfig.getProportionateScreenWidth(of),
     );
   }
 }
