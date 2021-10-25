@@ -12,11 +12,10 @@ class MenuScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          FlatButton.icon(
+          TextButton.icon(
             onPressed: () {
               Navigator.of(context).pop();
             },
-            padding: EdgeInsets.zero,
             icon: Icon(Icons.close, color: kSecondaryColor.withOpacity(0.8)),
             label: Text(''),
           ),
@@ -38,7 +37,6 @@ class _OpenedMenuTabsState extends State<OpenedMenuTabs> {
   late SexCategory _activeCategory;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _activeCategory = SexCategory.MEN;
   }
