@@ -3,9 +3,9 @@ import 'package:flutter_svg/svg.dart';
 
 class BottomNavigationButton extends StatelessWidget {
   const BottomNavigationButton({
-    Key key,
-    @required this.icon,
-    @required this.onPress,
+    Key? key,
+    required this.icon,
+    required this.onPress,
   }) : super(key: key);
   final String icon;
   final GestureTapCallback onPress;
@@ -18,7 +18,7 @@ class BottomNavigationButton extends StatelessWidget {
         width: 16.0,
         fit: BoxFit.cover,
         clipBehavior: Clip.antiAlias,
-        color: Theme.of(context).textTheme.button.color,
+        color: Theme.of(context).textTheme.button!.color,
       ),
     );
   }

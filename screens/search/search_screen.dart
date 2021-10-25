@@ -27,7 +27,7 @@ class SearchScreen extends StatelessWidget {
                   label: 'VIEW',
                   opacity: 1.0,
                   onPress: () {},
-                  textStyle: Theme.of(context).textTheme.bodyText2,
+                  textStyle: Theme.of(context).textTheme.bodyText2!,
                 ),
                 DarkCTAButton(
                   width: 335.0,
@@ -35,7 +35,7 @@ class SearchScreen extends StatelessWidget {
                   label: 'VIEW',
                   opacity: .70,
                   onPress: () {},
-                  textStyle: Theme.of(context).textTheme.bodyText2,
+                  textStyle: Theme.of(context).textTheme.bodyText2!,
                 ),
                 VerticalSpacing(of: 30),
                 LightCTAButton(
@@ -45,7 +45,7 @@ class SearchScreen extends StatelessWidget {
                   opacity: 1.0,
                   padding: 11.0,
                   onPress: () {},
-                  textStyle: Theme.of(context).textTheme.bodyText2,
+                  textStyle: Theme.of(context).textTheme.bodyText2!,
                 ),
                 LightCTAButton(
                   label: 'CTA ',
@@ -54,7 +54,7 @@ class SearchScreen extends StatelessWidget {
                   opacity: .70,
                   padding: 11.0,
                   onPress: () {},
-                  textStyle: Theme.of(context).textTheme.bodyText2,
+                  textStyle: Theme.of(context).textTheme.bodyText2!,
                 ),
                 VerticalSpacing(of: 30),
                 LightCTAButton(
@@ -64,7 +64,7 @@ class SearchScreen extends StatelessWidget {
                   opacity: 1.0,
                   padding: 11.0,
                   onPress: () {},
-                  textStyle: Theme.of(context).textTheme.bodyText2,
+                  textStyle: Theme.of(context).textTheme.bodyText2!,
                 ),
                 LightCTAButton(
                   label: 'CTA ',
@@ -73,7 +73,7 @@ class SearchScreen extends StatelessWidget {
                   opacity: .7,
                   padding: 11.0,
                   onPress: () {},
-                  textStyle: Theme.of(context).textTheme.bodyText2,
+                  textStyle: Theme.of(context).textTheme.bodyText2!,
                 ),
                 VerticalSpacing(of: 30),
                 DarkCTAButton(

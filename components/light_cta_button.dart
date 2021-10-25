@@ -4,20 +4,20 @@ import 'package:zara_clone/shared/size_config.dart';
 
 class LightCTAButton extends StatelessWidget {
   const LightCTAButton({
-    @required this.height,
-    @required this.width,
-    @required this.label,
-    @required this.onPress,
-    @required this.textStyle,
+    required this.height,
+    required this.width,
+    required this.label,
+    required this.onPress,
+    required this.textStyle,
     this.opacity,
-    Key key,
-    @required this.padding,
+    Key? key,
+    required this.padding,
   }) : super(key: key);
   final double width, height, padding;
   final String label;
   final GestureTapCallback onPress;
   final TextStyle textStyle;
-  final double opacity;
+  final double? opacity;
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
@@ -33,19 +33,19 @@ class LightCTAButton extends StatelessWidget {
       hoverElevation: 0.0,
       highlightElevation: 0.0,
       animationDuration: Duration(microseconds: 200),
-      onPressed: this.onPress ?? () {},
+      onPressed: this.onPress,
       splashColor: kPrimaryColor.withOpacity(opacity ?? 1.0),
-      height: 28.0 ?? SizeConfig.getProportionateScreenHeight(this.height),
+      height: 28.0,
       padding: EdgeInsets.symmetric(vertical: padding),
       color: Colors.transparent,
 
       ///kSecondaryColor.withOpacity(opacity ?? 1.0),
       child: SizedBox(
-        width: SizeConfig.getProportionateScreenWidth(this.width ?? 122.0),
+        width: SizeConfig.getProportionateScreenWidth(this.width),
         child: Center(
           child: Text(
-            this.label ?? 'CTA',
-            style: this.textStyle.copyWith(color: kSecondaryColor.withOpacity(opacity ?? 1.0), fontSize: 18.0),
+            this.label,
+            style: this.textStyle.copyWith(color: kSecondaryColor.withOpacity(opacity!), fontSize: 18.0),
           ),
         ),
       ),

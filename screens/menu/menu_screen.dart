@@ -35,7 +35,7 @@ class OpenedMenuTabs extends StatefulWidget {
 }
 
 class _OpenedMenuTabsState extends State<OpenedMenuTabs> {
-  SexCategory _activeCategory;
+  late SexCategory _activeCategory;
   @override
   void initState() {
     // TODO: implement initState

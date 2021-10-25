@@ -4,19 +4,19 @@ import 'package:zara_clone/shared/size_config.dart';
 
 class DarkCTAButton extends StatelessWidget {
   const DarkCTAButton({
-    @required this.height,
-    @required this.width,
-    @required this.label,
-    @required this.onPress,
-    @required this.textStyle,
+    required this.height,
+    required this.width,
+    required this.label,
+    required this.onPress,
+    required this.textStyle,
     this.opacity,
-    Key key,
+    Key? key,
   }) : super(key: key);
   final double width, height;
   final String label;
   final GestureTapCallback onPress;
   final TextStyle textStyle;
-  final double opacity;
+  final double? opacity;
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
@@ -31,14 +31,14 @@ class DarkCTAButton extends StatelessWidget {
       animationDuration: Duration(microseconds: 200),
       onPressed: this.onPress ?? () {},
       splashColor: kPrimaryColor.withOpacity(opacity ?? 1.0),
-      height: 28.0 ?? SizeConfig.getProportionateScreenHeight(this.height),
+      height: 28.0,
       padding: EdgeInsets.symmetric(vertical: 7),
       color: kPrimaryColor.withOpacity(opacity ?? 1.0),
       child: SizedBox(
-        width: SizeConfig.getProportionateScreenWidth(this.width ?? 122.0),
+        width: SizeConfig.getProportionateScreenWidth(this.width),
         child: Center(
           child: Text(
-            this.label ?? 'CTA',
+            this.label,
             style: this.textStyle.copyWith(color: kSecondaryColor.withOpacity(opacity ?? 1.0)),
           ),
         ),

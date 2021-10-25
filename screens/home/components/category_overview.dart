@@ -8,8 +8,8 @@ import 'overview_body.dart';
 
 class CategoryOverview extends StatefulWidget {
   const CategoryOverview({
-    Key key,
-    @required this.overview,
+    Key? key,
+    required this.overview,
   }) : super(key: key);
   final List<Overview> overview;
 
@@ -18,8 +18,8 @@ class CategoryOverview extends StatefulWidget {
 }
 
 class _CategoryOverviewState extends State<CategoryOverview> {
-  int _index;
-  PageController _pageController;
+  late int _index;
+  late PageController _pageController;
   @override
   void initState() {
     super.initState();
@@ -37,7 +37,7 @@ class _CategoryOverviewState extends State<CategoryOverview> {
           scrollDirection: Axis.vertical,
           itemCount: widget.overview.length,
           onPageChanged: (value) {
-            print('re-building page: ${_pageController.page.round()} ==> value: $value');
+            print('re-building page: ${_pageController.page!.round()} ==> value: $value');
 
             setState(() {
               _index = value;

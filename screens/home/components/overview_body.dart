@@ -6,8 +6,8 @@ import 'package:zara_clone/shared/size_config.dart';
 
 class OverviewBody extends StatelessWidget {
   const OverviewBody({
-    Key key,
-    @required this.overview,
+    Key? key,
+    required this.overview,
   }) : super(key: key);
 
   final Overview overview;
@@ -28,11 +28,11 @@ class OverviewBody extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              width: SizeConfig.screenWidth * 0.9, // 70%
+              width: SizeConfig.screenWidth! * 0.9, // 70%
               child: Text(
                 overview.title.toUpperCase(),
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headline1.copyWith(
+                style: Theme.of(context).textTheme.headline1!.copyWith(
                       color: kSecondaryColor,
                       fontSize: SizeConfig.getProportionateScreenWidth(50),
                       height: 1.2,
@@ -40,12 +40,12 @@ class OverviewBody extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: SizeConfig.screenWidth * 0.9, // 70%
+              width: SizeConfig.screenWidth! * 0.9, // 70%
               child: Text(
                 overview.description.toUpperCase(),
                 maxLines: 4,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyText2.copyWith(color: kSecondaryColor),
+                style: Theme.of(context).textTheme.bodyText2!.copyWith(color: kSecondaryColor),
               ),
             ),
             VerticalSpacing(
@@ -60,7 +60,7 @@ class OverviewBody extends StatelessWidget {
               opacity: 1.0,
               padding: 12.0,
               onPress: () {},
-              textStyle: Theme.of(context).textTheme.bodyText2.copyWith(height: 1),
+              textStyle: Theme.of(context).textTheme.bodyText2!.copyWith(height: 1),
             ),
           ],
         ),
