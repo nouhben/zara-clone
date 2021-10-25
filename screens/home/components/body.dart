@@ -12,8 +12,8 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  SexCategory _activeCategory;
+  late AnimationController _controller;
+  late SexCategory _activeCategory;
   @override
   void initState() {
     super.initState();

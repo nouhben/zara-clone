@@ -4,8 +4,8 @@ import 'package:zara_clone/shared/size_config.dart';
 
 class Tabs extends StatelessWidget {
   const Tabs({
-    Key key,
-    @required this.onPress,
+    Key? key,
+    required this.onPress,
   }) : super(key: key);
 
   final ValueChanged<int> onPress;
@@ -13,7 +13,7 @@ class Tabs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: SizeConfig.screenWidth * 0.8, // 80%
+      width: SizeConfig.screenWidth! * 0.8, // 80%
       child: DefaultTabController(
         length: 3,
         initialIndex: 0,

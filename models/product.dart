@@ -10,15 +10,15 @@ class Product {
   bool isFavorite, isPopular;
 
   Product({
-    this.images,
-    this.colors,
-    this.uid,
-    this.title,
-    this.rating,
+    required this.images,
+    required this.colors,
+    required this.uid,
+    required this.title,
+    required this.rating,
     this.isFavorite = false,
     this.isPopular = false,
-    this.description,
-    this.price,
-    this.barcode,
+    required this.description,
+    required this.price,
+    required this.barcode,
   });
 }

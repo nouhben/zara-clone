@@ -7,10 +7,10 @@ class Overview {
   final SexCategory sex;
 
   const Overview({
-    this.title,
-    this.description,
-    this.image,
-    this.sex,
+    required this.title,
+    required this.description,
+    required this.image,
+    required this.sex,
   });
 }
 
